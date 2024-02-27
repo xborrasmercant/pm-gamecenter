@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Game Center</string>
+    <string name="gameCenterLogo_contentDescription">PM_GameCenter</string>
+    <string name="gameCenterBG_contentDescription">PM_GameCenter</string>
+    <string name="button_login">LOGIN</string>
+    <string name="button_register">REGISTER</string>
+
+</resources>

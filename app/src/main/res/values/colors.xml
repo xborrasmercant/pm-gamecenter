@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="light_brown">#605952</color>
+    <color name="brown">#493D2F</color>
+    <color name="dark_brown">#2C261E</color>
+    <color name="light_beige">#E1CDB6</color>
+    <color name="beige">#D8B58C</color>
+    <color name="dark_beige">#8E7659</color>
+    <color name="light_text">#E8E0D8</color>
+    <color name="dark_text">#776e65</color>
+    <color name="shadowColor">#5C322A20</color>
+    <color name="olive_UI">#6A775D</color>
+    <color name="orange_neon">#FD9618</color>
+    <color name="dim_black">#16000000</color>
+
+
+    <color name="tier0">#d0c4b4</color>
+    <color name="tier1_1">#eee4da</color>
+    <color name="tier1_2">#ede0c8</color>
+    <color name="tier2_1">#EDA76A</color>
+    <color name="tier2_2">#EF8A55</color>
+    <color name="tier3_1">#D56248</color>
+    <color name="tier3_2">#DD5333</color>
+    <color name="tier4_1">#E6C55E</color>
+    <color name="tier4_2">#EDB33F</color>
+    <color name="tier5_1">#6E50A1</color>
+    <color name="tier5_2">#673AB7</color>
+    <color name="tier6_1">#B9659A</color>
+    <color name="tier6_2">#B5458B</color>
+    <color name="tier7">#471150</color>
+</resources>
