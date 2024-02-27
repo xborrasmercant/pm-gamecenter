@@ -12,6 +12,8 @@ public class LoginScreen extends AppCompatActivity {
     private EditText nameEditText;
     private EditText passwordEditText;
     private Button loginButton;
+    private User userLogged;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

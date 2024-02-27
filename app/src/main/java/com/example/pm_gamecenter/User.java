@@ -1,3 +1,5 @@
+package com.example.pm_gamecenter;
+
 public class User {
     private String username;
     private String password;
@@ -8,6 +10,10 @@ public class User {
         this.password = password;
         this.highScore_2048 = 0;
         this.highScore_Senku = 0;
+    }
+
+    public User() {
+        // Empty constructor
     }
 
 // Getters and setters
