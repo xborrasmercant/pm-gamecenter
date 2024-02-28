@@ -17,13 +17,36 @@
         <item name="android:shadowRadius">8</item>
     </style>
 
-    <style name="OliveBackgroundStyle" parent="Widget.AppCompat.Button">
-        <item name="android:background">@drawable/olive_background</item>ç
+    <style name="OliveBackgroundStyle">
         <item name="android:orientation">vertical</item>
         <item name="android:layout_marginStart">8dp</item>
         <item name="android:layout_marginEnd">8dp</item>
+        <item name="android:background">@drawable/olive_background</item>
         <item name="android:padding">8dp</item>
     </style>
+
+    <style name="GameCardBackgroundStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:background">@drawable/olive_background</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_marginStart">8dp</item>
+        <item name="android:layout_marginEnd">8dp</item>
+        <item name="android:padding">0dp</item>
+    </style>
+
+    <style name="GameCardTextStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">8dp</item>
+        <item name="android:layout_marginEnd">8dp</item>
+        <item name="android:layout_marginTop">2dp</item>
+        <item name="android:layout_marginBottom">4dp</item>
+    </style>
+
+
+
 
     <style name="PopupTitleStyle">
         <item name="android:layout_width">match_parent</item>
