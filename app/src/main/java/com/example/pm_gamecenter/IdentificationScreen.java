@@ -34,7 +34,8 @@ public class IdentificationScreen extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(IdentificationScreen.this, IdentificationForm.class);
                 intent.putExtra("IdentificationType", IdentificationType.REGISTER);
-                startActivity(intent);            }
+                startActivity(intent);
+            }
         });
     }
 

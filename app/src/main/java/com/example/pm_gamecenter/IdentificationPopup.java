@@ -40,7 +40,14 @@ public class IdentificationPopup extends PopupWindow{
         continueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dismiss();
+
+                if (idType != IdentificationType.REGISTER_SUCCESS) {
+                    dismiss();
+                }
+                else {
+                    hold(3000);
+                    dismiss();
+                }
             }
         });
     }
@@ -62,6 +69,14 @@ public class IdentificationPopup extends PopupWindow{
                 description.setText(R.string.popup_registerSuccess_Description);
                 break;
             }
+        }
+    }
+
+    public void hold(int miliseconds) {
+        try {
+            Thread.sleep(miliseconds);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

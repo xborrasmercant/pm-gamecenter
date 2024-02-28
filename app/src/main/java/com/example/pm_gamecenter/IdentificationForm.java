@@ -25,27 +25,7 @@ public class IdentificationForm extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.identification_form);
 
-        userManager = UserManager.getInstance();
-        nameEditText = findViewById(R.id.inputText_name);
-        passwordEditText = findViewById(R.id.inputText_password);
-        identificationButton = findViewById(R.id.identification_button);
-        formLayout = findViewById(R.id.formLayout);
-        idType = (IdentificationType) getIntent().getSerializableExtra("IdentificationType");
-        setFormInfo();
-
-        identificationButton.setOnClickListener(view -> {
-
-            switch (idType) {
-                case LOGIN: {
-                    loginUser();
-                    break;
-                }
-                case REGISTER: {
-                    registerUser();
-                    break;
-                }
-            }
-        });
+        initComponents();
     }
 
     private void loginUser() {
@@ -67,9 +47,8 @@ public class IdentificationForm extends AppCompatActivity {
 
         // If register success show popup with login button if users exists show try again popup
         if (!userExists(name, password)) {
-            userManager.getUsers().add(new User(name, password));
+            userManager.addUser(this, new User(name, password));
             showPopup(IdentificationType.REGISTER_SUCCESS);
-            wait(3000);
             startActivity(new Intent(IdentificationForm.this, IdentificationScreen.class));
         } else {
             showPopup(IdentificationType.REGISTER_FAILED);
@@ -79,9 +58,12 @@ public class IdentificationForm extends AppCompatActivity {
     public boolean userExists(String name, String password) {
         // Check users arraylist depending on if login or register
         for (User u : userManager.getUsers()) {
+            Log.i("USERNAME", u.getUsername());
+            Log.i("PASSWORD", u.getPassword());
+
             switch (idType) {
                 case LOGIN: {
-                    if (name.equals(u.getUsername()) || password.equals(u.getPassword())) {return true;}
+                    if (name.equals(u.getUsername()) && password.equals(u.getPassword())) {return true;}
                     break;
                 }
                 case REGISTER: {
@@ -107,21 +89,36 @@ public class IdentificationForm extends AppCompatActivity {
         }
     }
 
+    public void initComponents() {
+        userManager = UserManager.getInstance();
+        userManager.parseUsersXML(this);
+        nameEditText = findViewById(R.id.inputText_name);
+        passwordEditText = findViewById(R.id.inputText_password);
+        identificationButton = findViewById(R.id.identification_button);
+        formLayout = findViewById(R.id.formLayout);
+        idType = (IdentificationType) getIntent().getSerializableExtra("IdentificationType");
+        setFormInfo();
+
+        identificationButton.setOnClickListener(view -> {
+
+            switch (idType) {
+                case LOGIN: {
+                    loginUser();
+                    break;
+                }
+                case REGISTER: {
+                    registerUser();
+                    break;
+                }
+            }
+        });
+    }
+
     public void showPopup(IdentificationType idType) {
         int popupWidth = ViewGroup.LayoutParams.MATCH_PARENT;
         int popupHeight = ViewGroup.LayoutParams.WRAP_CONTENT;
 
         IdentificationPopup idPopup = new IdentificationPopup(this, idType, popupWidth, popupHeight);
         idPopup.showAtLocation(formLayout, Gravity.CENTER, 0, 0);
-
-        Log.i("[NULL]", "IDPopup is null");
-    }
-
-    public void wait(int miliseconds) {
-        try {
-            Thread.sleep(miliseconds);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 }

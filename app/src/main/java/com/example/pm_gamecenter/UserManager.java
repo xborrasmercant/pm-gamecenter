@@ -9,6 +9,7 @@ import javax.xml.parsers.SAXParserFactory;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.io.StringWriter;
 import java.util.ArrayList;
 
@@ -19,22 +20,22 @@ public class UserManager {
 
     private UserManager() {
         users = new ArrayList<>();
-        parseUsersXML();
     }
 
-    public void updateUserManager(Context context) {
-        parseUsersXML();
-        writeUsersXML(context, users);
+    public void addUser(Context context, User user) {
+        users.add(user);
+        writeUsersXML(context);
+        parseUsersXML(context);
     }
 
-    public void parseUsersXML() {
+    public void parseUsersXML(Context context) {
 
         try {
-            File inputFile = new File("path/to/users.xml");
+            InputStream is = context.openFileInput("users.xml");
             SAXParserFactory factory = SAXParserFactory.newInstance();
             SAXParser saxParser = factory.newSAXParser();
             SAXHandler saxHandler = new SAXHandler();
-            saxParser.parse(inputFile, saxHandler);
+            saxParser.parse(is, saxHandler);
 
             users = saxHandler.getUsers();
             // Process the users list as needed
@@ -43,7 +44,7 @@ public class UserManager {
         }
     }
 
-    public void writeUsersXML(Context context, ArrayList<User> users) {
+    public void writeUsersXML(Context context) {
         XmlSerializer serializer = Xml.newSerializer();
         StringWriter writer = new StringWriter();
         try {
