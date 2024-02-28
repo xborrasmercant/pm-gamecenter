@@ -23,7 +23,7 @@ public class IdentificationForm extends AppCompatActivity implements PopupAction
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.identification_form);
+        setContentView(R.layout.screen_identification_form);
 
         initComponents();
     }

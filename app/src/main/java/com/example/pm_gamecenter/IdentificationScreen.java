@@ -14,7 +14,7 @@ public class IdentificationScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.identificaton_screen);
+        setContentView(R.layout.screen_identificaton);
 
         loginButton = findViewById(R.id.login_button);
         registerButton = findViewById(R.id.register_button);

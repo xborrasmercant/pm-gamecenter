@@ -16,7 +16,7 @@ public class RegisterScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.identification_form);
+        setContentView(R.layout.screen_identification_form);
 
         userManager = UserManager.getInstance();
         nameEditText = findViewById(R.id.inputText_name);
