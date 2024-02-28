@@ -4,5 +4,10 @@
     <string name="gameCenterBG_contentDescription">PM_GameCenter</string>
     <string name="button_login">LOGIN</string>
     <string name="button_register">REGISTER</string>
+    <string name="button_continue">CONTINUE</string>
+    <string name="popup_loginFailed_Title">LOGIN FAILED!</string>
+    <string name="popup_registerFailed_Title">REGISTRATION FAILED!</string>
+    <string name="popup_loginFailed_Description">The username or the password you entered are not correct. Please, try again.</string>
+    <string name="popup_registerFailed_Description">The username you entered already exists. Please, try another username.</string>
 
 </resources>

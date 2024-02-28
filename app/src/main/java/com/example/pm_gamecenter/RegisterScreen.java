@@ -13,12 +13,14 @@ public class RegisterScreen extends AppCompatActivity {
     private EditText nameEditText;
     private EditText passwordEditText;
     private Button registerButton;
+    private UserManager userManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register_screen);
 
+        userManager = UserManager.getInstance();
         nameEditText = findViewById(R.id.inputText_name);
         passwordEditText = findViewById(R.id.inputText_password);
         registerButton = findViewById(R.id.register_button);
@@ -32,6 +34,23 @@ public class RegisterScreen extends AppCompatActivity {
         String name = nameEditText.getText().toString();
         String password = passwordEditText.getText().toString();
 
-        // TODO: Write user information to users.xml
+        if (userExists(name)) {
+            // TODO: add poopuser already exists, enter another username
+        } else {
+
+            // TODO: add popup (success, back to main menu)
+        }
+
+
+    }
+
+    public boolean userExists (String name) {
+        for (User u : userManager.getUsers()) {
+            if (name.equals(u.getUsername())) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

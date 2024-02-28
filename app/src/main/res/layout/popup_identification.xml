@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/rounded_corners"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/popup_title"
+                style="@style/PopupTitleStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/popup_loginFailed_Title" />
+
+            <TextView
+                android:id="@+id/popup_description"
+                style="@style/PopupTitleDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/popup_loginFailed_Description" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/popup_button"
+            style="@style/DefaultButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/button_continue" />
+
+
+    </LinearLayout>
+
+</FrameLayout>

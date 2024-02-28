@@ -21,6 +21,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".IdentificationScreen"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".LoginScreen"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".RegisterScreen"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".HubScreen"
+            android:exported="true">
+        </activity>
     </application>
 
 </manifest>
