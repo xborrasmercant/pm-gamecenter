@@ -10,7 +10,7 @@
     <string name="popup_registerFailed_Title">REGISTRATION FAILED!</string>
     <string name="popup_registerFailed_Description">The username you entered already exists. Please, try another username.</string>
     <string name="popup_registerSuccess_Title">SUCCESS!</string>
-    <string name="popup_registerSuccess_Description">The registration succeeded, you will be redirected to main menu in a few seconds.</string>
+    <string name="popup_registerSuccess_Description">The registration succeeded, to login press the bottom button.</string>
 
 
 </resources>

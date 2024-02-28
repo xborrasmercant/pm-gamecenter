@@ -18,6 +18,7 @@ public class IdentificationPopup extends PopupWindow{
     private TextView description;
     private Button continueButton;
     private View popupView;
+    private PopupActionListener popupActionListener;
 
 
     public IdentificationPopup(Context context, IdentificationType idType, int width, int height) {
@@ -45,7 +46,9 @@ public class IdentificationPopup extends PopupWindow{
                     dismiss();
                 }
                 else {
-                    hold(3000);
+                    if (popupActionListener != null) {
+                        popupActionListener.onPopupDismissed();
+                    }
                     dismiss();
                 }
             }
@@ -67,16 +70,9 @@ public class IdentificationPopup extends PopupWindow{
             case REGISTER_SUCCESS: {
                 title.setText(R.string.popup_registerSuccess_Title);
                 description.setText(R.string.popup_registerSuccess_Description);
+                continueButton.setText(R.string.button_login);
                 break;
             }
-        }
-    }
-
-    public void hold(int miliseconds) {
-        try {
-            Thread.sleep(miliseconds);
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 
@@ -102,6 +98,10 @@ public class IdentificationPopup extends PopupWindow{
 
     public void setContinueButton(Button continueButton) {
         this.continueButton = continueButton;
+    }
+
+    public void setPopupActionListener(PopupActionListener popupActionListener) {
+        this.popupActionListener = popupActionListener;
     }
 
 }

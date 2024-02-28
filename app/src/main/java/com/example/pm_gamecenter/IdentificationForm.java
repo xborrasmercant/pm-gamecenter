@@ -11,7 +11,7 @@ import android.widget.FrameLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class IdentificationForm extends AppCompatActivity {
+public class IdentificationForm extends AppCompatActivity implements PopupActionListener{
 
     private UserManager userManager;
     private EditText nameEditText, passwordEditText;
@@ -47,9 +47,10 @@ public class IdentificationForm extends AppCompatActivity {
 
         // If register success show popup with login button if users exists show try again popup
         if (!userExists(name, password)) {
-            userManager.addUser(this, new User(name, password));
+            User u = new User(name, password);
+            userManager.addUser(this, u);
+            userManager.setActiveUser(u);
             showPopup(IdentificationType.REGISTER_SUCCESS);
-            startActivity(new Intent(IdentificationForm.this, IdentificationScreen.class));
         } else {
             showPopup(IdentificationType.REGISTER_FAILED);
         }
@@ -119,6 +120,13 @@ public class IdentificationForm extends AppCompatActivity {
         int popupHeight = ViewGroup.LayoutParams.WRAP_CONTENT;
 
         IdentificationPopup idPopup = new IdentificationPopup(this, idType, popupWidth, popupHeight);
+        idPopup.setPopupActionListener(this);
         idPopup.showAtLocation(formLayout, Gravity.CENTER, 0, 0);
+    }
+
+    @Override
+    public void onPopupDismissed() {
+        startActivity(new Intent(IdentificationForm.this, HubScreen.class));
+
     }
 }
