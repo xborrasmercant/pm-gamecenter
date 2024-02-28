@@ -1,9 +1,15 @@
 package com.example.pm_gamecenter;
 
+import static androidx.core.content.ContextCompat.startActivity;
+
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
@@ -12,22 +18,20 @@ public class IdentificationPopup extends PopupWindow{
     private TextView description;
     private Button continueButton;
     private View popupView;
-    public enum Popup {
-        LOGIN,
-        REGISTER
-    }
 
-    public IdentificationPopup(Context context, Popup popup) {
+
+    public IdentificationPopup(Context context, IdentificationType idType, int width, int height) {
         super(context);
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         popupView = inflater.inflate(R.layout.popup_identification, null);
         this.setContentView(popupView);
-        this.setFocusable(true);
-        findViews();
-        setPopupInfo(popup);
+        findViews(idType);
+        setPopupInfo(idType);
+        setWidth(width);
+        setHeight(height);
     }
 
-    public void findViews() {
+    public void findViews(IdentificationType idType) {
         title = popupView.findViewById(R.id.popup_title);
         description = popupView.findViewById(R.id.popup_description);
         continueButton = popupView.findViewById(R.id.popup_button);
@@ -35,19 +39,28 @@ public class IdentificationPopup extends PopupWindow{
         // Set listener
         continueButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {dismiss();}
+            public void onClick(View v) {
+                dismiss();
+            }
         });
     }
 
-    public void setPopupInfo(Popup popup) {
-        switch (popup) {
+    public void setPopupInfo(IdentificationType idType) {
+        switch (idType) {
             case LOGIN: {
                 title.setText(R.string.popup_loginFailed_Title);
                 description.setText(R.string.popup_loginFailed_Description);
+                break;
             }
-            case REGISTER: {
+            case REGISTER_FAILED: {
                 title.setText(R.string.popup_registerFailed_Title);
                 description.setText(R.string.popup_registerFailed_Description);
+                break;
+            }
+            case REGISTER_SUCCESS: {
+                title.setText(R.string.popup_registerSuccess_Title);
+                description.setText(R.string.popup_registerSuccess_Description);
+                break;
             }
         }
     }

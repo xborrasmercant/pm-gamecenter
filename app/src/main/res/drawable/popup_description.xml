@@ -6,7 +6,7 @@
 
     <!-- Define the border properties -->
     <stroke
-        android:width="4dp"
+        android:width="2dp"
         android:color="@color/mid_olive_UI" />
 
     <!-- Optionally define the corner radius -->

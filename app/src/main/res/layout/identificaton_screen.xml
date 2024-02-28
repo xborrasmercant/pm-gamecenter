@@ -6,29 +6,29 @@
     android:orientation="vertical">
 
     <ImageView
-        android:id="@+id/gameCenter_background"
+        android:id="@+id/background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:contentDescription="@string/gameCenterBG_contentDescription"
         android:scaleType="centerCrop"
-        android:src="@drawable/gamecenter_background" />
+        android:src="@drawable/bmp_gamecenter_background" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
         android:gravity="center"
         android:orientation="vertical">
 
         <Button
             android:id="@+id/login_button"
+            style="@style/DefaultButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/button_login" />
 
         <Button
             android:id="@+id/register_button"
+            style="@style/DefaultButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/button_register" />

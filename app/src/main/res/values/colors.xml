@@ -18,7 +18,13 @@
     <color name="mid_olive_UI">#58634D</color>
     <color name="dark_olive_UI">#4B5542</color>
     <color name="orange_neon">#FD9618</color>
-    <color name="dim_black">#61000000</color>
+    <color name="dim_mblack">#000000</color>
+    <color name="dim_black">#B0000000</color>
+    <color name="dimgrey_background">#86000000</color>
+    <color name="dimgrey_border">#404040</color>
+
+    <color name="olive_border">#505A47</color>
+    <color name="olive_background">#626E56</color>
 
 
     <color name="tier0">#d0c4b4</color>

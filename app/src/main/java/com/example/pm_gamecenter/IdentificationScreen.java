@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class IdentificationScreen extends AppCompatActivity {
     private Button loginButton, registerButton;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,15 +23,18 @@ public class IdentificationScreen extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(IdentificationScreen.this, LoginScreen.class));
+                Intent intent = new Intent(IdentificationScreen.this, IdentificationForm.class);
+                intent.putExtra("IdentificationType", IdentificationType.LOGIN);
+                startActivity(intent);
             }
         });
 
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(IdentificationScreen.this, RegisterScreen.class));
-            }
+                Intent intent = new Intent(IdentificationScreen.this, IdentificationForm.class);
+                intent.putExtra("IdentificationType", IdentificationType.REGISTER);
+                startActivity(intent);            }
         });
     }
 

@@ -5,12 +5,12 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/gameCenter_background"
+        android:id="@+id/background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
         android:contentDescription="@string/gameCenterBG_contentDescription"
-        android:src="@drawable/gamecenter_background" />
+        android:src="@drawable/bmp_gamecenter_background" />
 
 
     <ImageView
@@ -19,6 +19,6 @@
         android:layout_height="match_parent"
         android:layout_margin="64dp"
         android:contentDescription="@string/gameCenterLogo_contentDescription"
-        app:srcCompat="@drawable/gamecenter_logo" />
+        app:srcCompat="@drawable/bmp_gamecenter_logo" />
 
 </FrameLayout>
