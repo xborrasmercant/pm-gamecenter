@@ -25,7 +25,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/rounded_corners"
+            android:background="@drawable/popup_title"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -58,11 +58,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-
-            android:background="@drawable/default_button"
-            android:text="@string/button_login"
-            android:textColorHighlight="@color/orange_neon"
-            android:textColorLink="@color/orange_neon" />
+            android:text="@string/button_login" />
 
 
     </LinearLayout>

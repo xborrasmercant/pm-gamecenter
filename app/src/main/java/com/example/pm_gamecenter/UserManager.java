@@ -13,8 +13,19 @@ import java.io.StringWriter;
 import java.util.ArrayList;
 
 public class UserManager {
-    private ArrayList<User> users = new ArrayList<>();;
+    private static UserManager instance;
+    private ArrayList<User> users;
+    private User activeUser;
 
+    private UserManager() {
+        users = new ArrayList<>();
+        parseUsersXML();
+    }
+
+    public void updateUserManager(Context context) {
+        parseUsersXML();
+        writeUsersXML(context, users);
+    }
 
     public void parseUsersXML() {
 
@@ -84,5 +95,32 @@ public class UserManager {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+
+    public static UserManager getInstance() {
+        if (instance == null) {
+            instance = new UserManager();
+        }
+        return instance;
+    }
+    public static void setInstance(UserManager instance) {
+        UserManager.instance = instance;
+    }
+
+    public ArrayList<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(ArrayList<User> users) {
+        this.users = users;
+    }
+
+    public User getActiveUser() {
+        return activeUser;
+    }
+
+    public void setActiveUser(User activeUser) {
+        this.activeUser = activeUser;
     }
 }

@@ -11,9 +11,14 @@
     <color name="light_text">#E8E0D8</color>
     <color name="dark_text">#776e65</color>
     <color name="shadowColor">#5C322A20</color>
-    <color name="olive_UI">#6A775D</color>
+
+    <color name="popup_title">#404938</color>
+    <color name="popup_description">#4B5542</color>
+    <color name="light_olive_UI">#6A775D</color>
+    <color name="mid_olive_UI">#58634D</color>
+    <color name="dark_olive_UI">#4B5542</color>
     <color name="orange_neon">#FD9618</color>
-    <color name="dim_black">#16000000</color>
+    <color name="dim_black">#61000000</color>
 
 
     <color name="tier0">#d0c4b4</color>
