@@ -34,7 +34,9 @@ public class IdentificationFormScreen extends AppCompatActivity implements Popup
 
         // If login success set active user and go to hub (where games are located) if not show try again popup
         if (userExists(name, password)) {
-            userManager.setActiveUser(new User(name, password));
+            String defaultProfilePicturePath = "android.resource://" + getApplicationContext().getPackageName() + "/drawable/bmp_avatar_default_s";
+
+            userManager.setActiveUser(new User(name, password, defaultProfilePicturePath));
             startActivity(new Intent(IdentificationFormScreen.this, HubScreen.class));
         } else {
             showPopup(IdentificationType.LOGIN);
@@ -47,7 +49,9 @@ public class IdentificationFormScreen extends AppCompatActivity implements Popup
 
         // If register success show popup with login button if users exists show try again popup
         if (!userExists(name, password)) {
-            User u = new User(name, password);
+            String defaultProfilePicturePath = "android.resource://" + getApplicationContext().getPackageName() + "/drawable/bmp_avatar_default_s";
+
+            User u = new User(name, password, defaultProfilePicturePath);
             userManager.addUser(this, u);
             userManager.setActiveUser(u);
             showPopup(IdentificationType.REGISTER_SUCCESS);

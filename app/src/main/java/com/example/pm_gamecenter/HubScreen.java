@@ -1,5 +1,6 @@
 package com.example.pm_gamecenter;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.Layout;
@@ -67,6 +68,7 @@ public class HubScreen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.i("CLICK", "LEADERBOARDS");
+                startActivity(new Intent(HubScreen.this, LeaderboardsScreen.class));
             }
         });
 

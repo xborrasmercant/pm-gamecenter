@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/card_main"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    style="@style/LeaderboardCardBackgroundStyle">
+
+    <ImageView
+        android:id="@+id/card_picture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/bmp_avatar_default_s" />
+
+    <LinearLayout
+        android:id="@+id/card_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/card_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Username"
+            style="@style/LeaderboardCardTextStyle"/>
+
+        <LinearLayout
+            android:id="@+id/card_separator"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="8dp"
+            android:background="@color/black"
+            android:orientation="horizontal" />
+
+        <TextView
+            android:id="@+id/card_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="20434"
+            style="@style/LeaderboardCardTextStyle"
+            android:paddingVertical="4dp"
+            android:textSize="20dp"
+            android:fontFamily="@font/roboto_black"/>
+    </LinearLayout>
+
+</LinearLayout>

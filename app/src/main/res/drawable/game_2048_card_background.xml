@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/game_2048_background"/> <!-- Background color of the view -->
+    <corners android:radius="4sp"/> <!-- Specify the corner radius here -->
+    <stroke
+        android:width="3dp"
+        android:color="@color/game_2048_border" />
+</shape>

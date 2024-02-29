@@ -1,13 +1,20 @@
 package com.example.pm_gamecenter;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 
 public class IdentificationScreen extends AppCompatActivity {
+    private ImageView appLogo;
     private Button loginButton, registerButton;
 
 
@@ -16,10 +23,29 @@ public class IdentificationScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.screen_identificaton);
 
+        findViews();
+        editViewsAttributes();
+        setClickListeners();
+    }
+
+
+    public void findViews() {
+        appLogo = findViewById(R.id.app_logo);
         loginButton = findViewById(R.id.login_button);
         registerButton = findViewById(R.id.register_button);
+    }
 
+    public void editViewsAttributes() {
+        int appLogoWidth = getDisplayWidth()*60/100;
+        int appLogoTopMargin = getDisplayHeight()*10/100;
 
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(appLogoWidth, appLogoWidth);
+        params.setMargins(0, appLogoTopMargin, 0, 0);
+        appLogo.setLayoutParams(params);
+
+    }
+
+    public void setClickListeners() {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -37,6 +63,16 @@ public class IdentificationScreen extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    public int getDisplayWidth(){
+        DisplayMetrics displayMetrics = getApplicationContext().getResources().getDisplayMetrics();
+        return displayMetrics.widthPixels;
+    }
+
+    public int getDisplayHeight(){
+        DisplayMetrics displayMetrics = getApplicationContext().getResources().getDisplayMetrics();
+        return displayMetrics.heightPixels;
     }
 
 

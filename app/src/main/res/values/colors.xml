@@ -27,6 +27,12 @@
     <color name="olive_border">#505A47</color>
     <color name="olive_background">#626E56</color>
 
+    <color name="game_2048_border">#BF5E1E</color>
+    <color name="game_2048_background">#ED6D18</color>
+
+    <color name="game_senku_border">#AFAFAF</color>
+    <color name="game_senku_background">#E3E3E3</color>
+
 
     <color name="olive_dim">#90626E56</color>
 
