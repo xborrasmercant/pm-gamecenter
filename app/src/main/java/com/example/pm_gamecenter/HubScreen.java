@@ -28,6 +28,7 @@ public class HubScreen extends AppCompatActivity {
         setContentView(R.layout.screen_hub);
         findViews();
         editViewsAttributes();
+        setClickListeners();
     }
 
     public void findViews() {
