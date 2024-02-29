@@ -15,6 +15,9 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
 
+import java.util.Collections;
+import java.util.Comparator;
+
 public class HubScreen extends AppCompatActivity {
 
     UserManager userManager = UserManager.getInstance();
@@ -68,6 +71,7 @@ public class HubScreen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.i("CLICK", "LEADERBOARDS");
+                sortUsersAlphabetically();
                 startActivity(new Intent(HubScreen.this, LeaderboardsScreen.class));
             }
         });
@@ -97,5 +101,14 @@ public class HubScreen extends AppCompatActivity {
     public int getDisplayWidth(){
         DisplayMetrics displayMetrics = getApplicationContext().getResources().getDisplayMetrics();
         return displayMetrics.widthPixels;
+    }
+
+    public void sortUsersAlphabetically() {
+        Collections.sort(userManager.getUsers(), new Comparator<User>() {
+            @Override
+            public int compare(User u1, User u2) {
+                return u1.getUsername().compareToIgnoreCase(u2.getUsername());
+            }
+        });
     }
 }
