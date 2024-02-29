@@ -11,6 +11,10 @@
     <string name="popup_registerFailed_Description">The username you entered already exists. Please, try another username.</string>
     <string name="popup_registerSuccess_Title">SUCCESS!</string>
     <string name="popup_registerSuccess_Description">The registration succeeded, to login press the bottom button.</string>
+    <string name="gameCard1_Title">2048</string>
+    <string name="gameCard1_Description">Combine tiles with matching numbers to reach 2048</string>
+    <string name="gameCard2_Title">Senku</string>
+    <string name="gameCard2_Description">Clear the board of pegs by jumping them over each other, leaving only one remaining</string>
 
 
 </resources>

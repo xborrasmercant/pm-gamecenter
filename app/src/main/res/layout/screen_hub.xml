@@ -8,7 +8,7 @@
     <ImageView
         android:id="@+id/background"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:contentDescription="@string/gameCenterBG_contentDescription"
         android:scaleType="centerCrop"
         android:src="@drawable/bmp_gamecenter_background" />
@@ -44,10 +44,8 @@
 
                 <TextView
                     android:id="@+id/navbar_username"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:text="TextView" />
+                    style="@style/BasicTextStyle"
+                    android:text="Username" />
             </LinearLayout>
 
             <LinearLayout
@@ -62,75 +60,65 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
-                    android:src="@drawable/bmp_avatar_default_s" />
+                    android:src="@drawable/bmp_leaderboards_s" />
 
                 <ImageView
                     android:id="@+id/navbar_settings"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
-                    android:src="@drawable/bmp_avatar_default_s" />
+                    android:src="@drawable/bmp_settings_s" />
             </LinearLayout>
 
 
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/game1_main"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            style="@style/GameCardBackgroundStyle">
+            android:id="@+id/gamecards_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/game1_bitmap"
-                android:layout_width="250dp"
-                android:layout_height="250dp"
-                android:src="@drawable/bmp_avatar_default_m"
-                />
-
-            <TextView
-                android:id="@+id/game1_title"
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:id="@+id/game1_main"
+                style="@style/GameCardBackgroundStyle"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView"
-                style="@style/GameCardTextStyle"/>
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/game1_description"
-                android:layout_width="match_parent"
+                <ImageView
+                    android:id="@+id/game1_bitmap"
+                    android:layout_width="250dp"
+                    android:layout_height="250dp"
+                    android:src="@drawable/bmp_game1_logo" />
+
+                <TextView
+                    android:id="@+id/game1_title"
+                    style="@style/GameCardTextStyle"
+                    android:text="@string/gameCard1_Title" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/game2_main"
+                style="@style/GameCardBackgroundStyle"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView"
-                style="@style/GameCardTextStyle"/>
-        </LinearLayout>
+                android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/game2_main"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            style="@style/GameCardBackgroundStyle">
+                <ImageView
+                    android:id="@+id/game2_bitmap"
+                    android:layout_width="250dp"
+                    android:layout_height="250dp"
+                    android:background="@drawable/bmp_game2_logo" />
 
-            <ImageView
-                android:id="@+id/game2_bitmap"
-                android:layout_width="250dp"
-                android:layout_height="250dp"
-                android:background="@drawable/bmp_avatar_default_m"
-                />
+                <TextView
+                    android:id="@+id/game2_title"
+                    style="@style/GameCardTextStyle"
+                    android:text="@string/gameCard2_Title" />
 
-            <TextView
-                android:id="@+id/game2_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView"
-                style="@style/GameCardTextStyle"/>
-
-            <TextView
-                android:id="@+id/game2_description"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView"
-                style="@style/GameCardTextStyle"/>
+            </LinearLayout>
         </LinearLayout>
 
     </LinearLayout>

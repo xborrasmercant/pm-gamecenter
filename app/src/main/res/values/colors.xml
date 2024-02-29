@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="white_frost">#FFFFFFFF</color>
     <color name="light_brown">#605952</color>
     <color name="brown">#493D2F</color>
     <color name="dark_brown">#2C261E</color>
@@ -12,6 +12,7 @@
     <color name="dark_text">#776e65</color>
     <color name="shadowColor">#5C322A20</color>
 
+    <color name="white">#F1F1F1</color>
     <color name="popup_title">#404938</color>
     <color name="popup_description">#4B5542</color>
     <color name="light_olive_UI">#6A775D</color>
