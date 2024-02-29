@@ -23,7 +23,7 @@ public class IdentificationScreen extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(IdentificationScreen.this, IdentificationForm.class);
+                Intent intent = new Intent(IdentificationScreen.this, IdentificationFormScreen.class);
                 intent.putExtra("IdentificationType", IdentificationType.LOGIN);
                 startActivity(intent);
             }
@@ -32,7 +32,7 @@ public class IdentificationScreen extends AppCompatActivity {
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(IdentificationScreen.this, IdentificationForm.class);
+                Intent intent = new Intent(IdentificationScreen.this, IdentificationFormScreen.class);
                 intent.putExtra("IdentificationType", IdentificationType.REGISTER);
                 startActivity(intent);
             }

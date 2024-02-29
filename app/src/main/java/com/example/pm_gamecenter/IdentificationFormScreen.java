@@ -11,7 +11,7 @@ import android.widget.FrameLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class IdentificationForm extends AppCompatActivity implements PopupActionListener{
+public class IdentificationFormScreen extends AppCompatActivity implements PopupActionListener{
 
     private UserManager userManager;
     private EditText nameEditText, passwordEditText;
@@ -35,7 +35,7 @@ public class IdentificationForm extends AppCompatActivity implements PopupAction
         // If login success set active user and go to hub (where games are located) if not show try again popup
         if (userExists(name, password)) {
             userManager.setActiveUser(new User(name, password));
-            startActivity(new Intent(IdentificationForm.this, HubScreen.class));
+            startActivity(new Intent(IdentificationFormScreen.this, HubScreen.class));
         } else {
             showPopup(IdentificationType.LOGIN);
         }
@@ -126,7 +126,7 @@ public class IdentificationForm extends AppCompatActivity implements PopupAction
 
     @Override
     public void onPopupDismissed() {
-        startActivity(new Intent(IdentificationForm.this, HubScreen.class));
+        startActivity(new Intent(IdentificationFormScreen.this, HubScreen.class));
 
     }
 }
