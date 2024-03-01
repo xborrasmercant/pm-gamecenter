@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class IdentificationFormScreen extends AppCompatActivity implements PopupActionListener{
 
-    private UserManager userManager;
+    private UserManager userManager = UserManager.getInstance();
     private EditText nameEditText, passwordEditText;
     private Button identificationButton;
     private FrameLayout formLayout;
@@ -92,10 +92,6 @@ public class IdentificationFormScreen extends AppCompatActivity implements Popup
     }
 
     public void initComponents() {
-        userManager = UserManager.getInstance();
-        userManager.resetUsersXML(this);
-
-        userManager.parseUsersXML(this);
         nameEditText = findViewById(R.id.inputText_name);
         passwordEditText = findViewById(R.id.inputText_password);
         identificationButton = findViewById(R.id.identification_button);

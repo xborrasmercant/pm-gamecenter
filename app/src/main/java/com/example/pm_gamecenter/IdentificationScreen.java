@@ -14,6 +14,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
 
 public class IdentificationScreen extends AppCompatActivity {
+
+    private UserManager userManager = UserManager.getInstance();
     private ImageView appLogo;
     private Button loginButton, registerButton;
 
@@ -39,9 +41,15 @@ public class IdentificationScreen extends AppCompatActivity {
         int appLogoWidth = getDisplayWidth()*60/100;
         int appLogoTopMargin = getDisplayHeight()*10/100;
 
+        userManager = UserManager.getInstance();
+        //userManager.resetUsersXML(this);
+        userManager.parseUsersXML(this);
+
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(appLogoWidth, appLogoWidth);
         params.setMargins(0, appLogoTopMargin, 0, 0);
         appLogo.setLayoutParams(params);
+
+
 
     }
 

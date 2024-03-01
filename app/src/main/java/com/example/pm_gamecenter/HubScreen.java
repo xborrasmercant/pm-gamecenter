@@ -80,6 +80,7 @@ public class HubScreen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.i("CLICK", "SETTINGS");
+                startActivity(new Intent(HubScreen.this, SettingsScreen.class));
             }
         });
 

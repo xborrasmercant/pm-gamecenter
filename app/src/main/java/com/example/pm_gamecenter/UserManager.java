@@ -1,5 +1,6 @@
 package com.example.pm_gamecenter;
 import android.content.Context;
+import android.util.Log;
 import android.util.Xml;
 
 import org.xmlpull.v1.XmlSerializer;
@@ -26,6 +27,17 @@ public class UserManager {
         users.add(user);
         writeUsersXML(context);
         parseUsersXML(context);
+    }
+
+    public User getUserByName(String username) {
+        for (User u : users) {
+            if (u.getUsername().equals(username)) {
+                return u;
+            }
+        }
+
+        Log.i("USER_NOT_FOUND", "User with username '" + username + "' has not been found.");
+        return null;
     }
 
     public void parseUsersXML(Context context) {
