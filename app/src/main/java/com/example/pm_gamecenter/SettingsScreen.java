@@ -123,7 +123,7 @@ public class SettingsScreen extends AppCompatActivity {
 
                 Log.i(
                         "CLICK",
-                        "EDIT USERNAME\n" +
+                        "RESET HIGHSCORES\n" +
                                 "Old 2048 Highscore: " + oldScore2048 + "\n" +
                                 "Old Senku Highscore: " + oldScoreSenku + "\n" +
                                 "========================================\n" +
