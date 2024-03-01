@@ -15,6 +15,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
 
+import com.example.pm_gamecenter.game2048.Game2048Screen;
+
 import java.util.Collections;
 import java.util.Comparator;
 
@@ -87,14 +89,16 @@ public class HubScreen extends AppCompatActivity {
         gameCard1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i("CLICK", "GAME 1");
+                Log.i("CLICK", "GAME 2048");
+                startActivity(new Intent(HubScreen.this, Game2048Screen.class));
+
             }
         });
 
         gameCard2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i("CLICK", "GAME 2");
+                Log.i("CLICK", "GAME SENKU");
             }
         });
     }
