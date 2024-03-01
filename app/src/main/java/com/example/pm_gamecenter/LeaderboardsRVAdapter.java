@@ -34,8 +34,14 @@ public class LeaderboardsRVAdapter extends RecyclerView.Adapter<LeaderboardsRVAd
 
     @Override
     public void onBindViewHolder(@NonNull LeaderboardsRVAdapter.LeaderboardViewHolder holder, int position) {
-        //holder.cardProfilePicture.setImageURI(Uri.parse(leaderboardCards.get(position).getProfilePicturePath()));
-        holder.cardProfilePicture.setImageResource(R.drawable.bmp_avatar_default_s);
+
+        // If the user has a profile picture add it, if not add the default one.
+        if (leaderboardCards.get(position).getProfilePicturePath() != null) {
+            holder.cardProfilePicture.setImageURI(Uri.parse(leaderboardCards.get(position).getProfilePicturePath()));
+        }
+        else {
+            holder.cardProfilePicture.setImageResource(R.drawable.bmp_avatar_default_s);
+        }
         holder.cardUsername.setText(leaderboardCards.get(position).getUsername());
         holder.cardScore.setText(String.valueOf(leaderboardCards.get(position).getScore()));
     }

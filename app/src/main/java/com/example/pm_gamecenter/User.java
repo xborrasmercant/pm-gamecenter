@@ -4,10 +4,10 @@ public class User {
     private String username, password, profilePicturePath;
     private int highScore_2048, highScore_Senku;
 
-    public User(String username, String password, String profilePicturePath) {
+    public User(String username, String password) {
         this.username = username;
         this.password = password;
-        this.profilePicturePath = profilePicturePath;
+        this.profilePicturePath = null;
         this.highScore_2048 = 0;
         this.highScore_Senku = 0;
     }

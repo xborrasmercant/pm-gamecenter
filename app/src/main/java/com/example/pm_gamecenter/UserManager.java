@@ -98,6 +98,58 @@ public class UserManager {
         }
     }
 
+    public void resetUsersXML(Context context) {
+        XmlSerializer serializer = Xml.newSerializer();
+        StringWriter writer = new StringWriter();
+        try {
+            FileOutputStream fos = context.openFileOutput("users.xml", Context.MODE_PRIVATE);
+
+            serializer.setOutput(writer);
+
+            // Start Document
+            serializer.startDocument("UTF-8", true);
+
+            // Start a tag called "users"
+            serializer.startTag("", "users");
+
+
+            // USER
+            serializer.startTag("", "user");
+
+            // USERNAME
+            serializer.startTag("", "username");
+            serializer.text("admin");
+            serializer.endTag("", "username");
+
+            // PASSWORD
+            serializer.startTag("", "password");
+            serializer.text("admin");
+            serializer.endTag("", "password");
+
+            // HIGHSCORES 2048 and SENKU
+            serializer.startTag("", "highscore_2048");
+            serializer.text("/");
+            serializer.endTag("", "highscore_2048");
+
+            serializer.startTag("", "highscore_senku");
+            serializer.text(String.valueOf(user.getHighScore_Senku()));
+            serializer.endTag("", "highscore_senku");
+
+            serializer.endTag("", "user");
+
+            serializer.endTag("", "users");
+
+            serializer.endDocument();
+
+            // Write the data
+            String dataWrite = writer.toString();
+            fos.write(dataWrite.getBytes());
+            fos.close();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 
     public static UserManager getInstance() {
         if (instance == null) {
