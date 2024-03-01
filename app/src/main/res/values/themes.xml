@@ -1,5 +1,4 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <style name="Theme.PM_GameCenter" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="buttonStyle">@style/DefaultButtonStyle</item>
     </style>
 </resources>

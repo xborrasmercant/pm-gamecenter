@@ -25,6 +25,7 @@ public class IdentificationFormScreen extends AppCompatActivity implements Popup
         super.onCreate(savedInstanceState);
         setContentView(R.layout.screen_identification_form);
 
+
         initComponents();
     }
 
@@ -92,6 +93,8 @@ public class IdentificationFormScreen extends AppCompatActivity implements Popup
 
     public void initComponents() {
         userManager = UserManager.getInstance();
+        userManager.resetUsersXML(this);
+
         userManager.parseUsersXML(this);
         nameEditText = findViewById(R.id.inputText_name);
         passwordEditText = findViewById(R.id.inputText_password);

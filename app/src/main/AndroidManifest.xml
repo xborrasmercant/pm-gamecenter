@@ -37,6 +37,10 @@
             android:name=".LeaderboardsScreen"
             android:exported="true">
         </activity>
+        <activity
+            android:name=".SettingsScreen"
+            android:exported="true">
+        </activity>
     </application>
 
 </manifest>

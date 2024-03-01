@@ -111,8 +111,6 @@ public class UserManager {
 
             // Start a tag called "users"
             serializer.startTag("", "users");
-
-
             // USER
             serializer.startTag("", "user");
 
@@ -128,11 +126,11 @@ public class UserManager {
 
             // HIGHSCORES 2048 and SENKU
             serializer.startTag("", "highscore_2048");
-            serializer.text("/");
+            serializer.text("0");
             serializer.endTag("", "highscore_2048");
 
             serializer.startTag("", "highscore_senku");
-            serializer.text(String.valueOf(user.getHighScore_Senku()));
+            serializer.text(String.valueOf("0"));
             serializer.endTag("", "highscore_senku");
 
             serializer.endTag("", "user");

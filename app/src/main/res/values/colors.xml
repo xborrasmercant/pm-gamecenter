@@ -27,6 +27,9 @@
     <color name="olive_border">#505A47</color>
     <color name="olive_background">#626E56</color>
 
+    <color name="destructive_btn_border">#980E0E</color>
+    <color name="destructive_btn_background">#CD1717</color>
+
     <color name="game_2048_border">#BF5E1E</color>
     <color name="game_2048_background">#ED6D18</color>
 

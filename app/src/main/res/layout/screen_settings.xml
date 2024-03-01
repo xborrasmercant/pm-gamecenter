@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/settings_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/app_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/gameCenterBG_contentDescription"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bmp_gamecenter_background" />
+
+    <LinearLayout
+        android:id="@+id/settings_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+
+
+        <ImageView
+            android:id="@+id/settings_profilePicture"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/bmp_avatar_default_m" />
+
+        <LinearLayout
+            android:id="@+id/settings_info_box"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            style="@style/GameCardBackgroundStyle"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/settings_username_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Username" />
+
+            <LinearLayout
+                android:id="@+id/settings_username_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <EditText
+                    android:id="@+id/settings_username_field"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:text="xXAntonioXx" />
+
+                <ImageView
+                    android:id="@+id/settings_username_edit"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/bmp_edit_button" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/settings_password_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Password" />
+
+            <LinearLayout
+                android:id="@+id/settings_password_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+            <EditText
+                android:id="@+id/settings_password_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="textPassword"
+                android:text="xXAntonioXx" />
+
+
+                <ImageView
+                    android:id="@+id/settings_password_edit"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/bmp_edit_button" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button"
+            style="@style/DefaultButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="RESET SCORES" />
+
+        <Button
+            android:id="@+id/button2"
+            style="@style/DestructiveButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="DELETE ACCOUNT" />
+
+
+    </LinearLayout>
+
+</FrameLayout>
