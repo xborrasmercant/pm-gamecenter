@@ -3,11 +3,9 @@ package com.example.pm_gamecenter;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.text.Layout;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -16,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
 
 import com.example.pm_gamecenter.game2048.Game2048Screen;
+import com.example.pm_gamecenter.game2048.oldGame2048Screen;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -32,6 +31,8 @@ public class HubScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.screen_hub);
+        Log.i("ACTIVE_USER_2048_HIGHSCORE", String.valueOf(userManager.getActiveUser().getHighScore_2048()));
+
         findViews();
         editViewsAttributes();
         setClickListeners();

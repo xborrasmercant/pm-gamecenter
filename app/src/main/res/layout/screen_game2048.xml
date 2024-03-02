@@ -67,8 +67,8 @@
                     <TextView
                         android:id="@+id/game2048_score_best_value"
                         style="@style/ScoreboxText"
-                        android:textSize="20dp"
-                        android:text="534" />
+                        android:textSize="18dp"
+                        android:text="534432434" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -97,18 +97,20 @@
                     <TextView
                         android:id="@+id/game2048_score_current_value"
                         style="@style/ScoreboxText"
-                        android:textSize="20dp"
+                        android:textSize="18dp"
                         android:text="0" />
                 </LinearLayout>
             </LinearLayout>
+
         </LinearLayout>
 
-        <androidx.gridlayout.widget.GridLayout
-            android:id="@+id/game2048_grid"
+        <FrameLayout
+            android:id="@+id/game2048_body"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-        </androidx.gridlayout.widget.GridLayout>
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp" />
 
         <LinearLayout
             android:id="@+id/game2048_footer"

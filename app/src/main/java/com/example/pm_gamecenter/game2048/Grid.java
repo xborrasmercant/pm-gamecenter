@@ -9,7 +9,8 @@
 
     public class Grid extends GridLayout {
         private int gridWidth, gridHeight;
-        private final Block[][] gridMatrix;
+        private Block[][] gridMatrix;
+        private  Block[][] lastGridMatrixStatus;
         private Context gameBlockStyledContext = new ContextThemeWrapper(this.getContext(), R.style.GameBlockStyle); // Context with custom style is created
         private MergeListener mergeListener;
 
@@ -18,8 +19,10 @@
             this.gridWidth = gridWidth;
             this.gridHeight = gridHeight;
             this.gridMatrix = new Block[gridHeight][gridWidth];
+            this.lastGridMatrixStatus = new Block[gridHeight][gridWidth];
             this.initGrid();
             this.valueToRandomGameBlock();
+            copyMatrixContent(gridMatrix, lastGridMatrixStatus);
         }
 
         public void valueToRandomGameBlock() {
@@ -68,6 +71,8 @@
                     }
                 }
             }
+
+            copyMatrixContent(gridMatrix, lastGridMatrixStatus);
         }
 
         private void moveAndMergeTiles(int row, int col, String direction, boolean[][] merged) {
@@ -150,9 +155,12 @@
                 }
             }
         }
+
+        public void undoGrid(){
+            copyMatrixContent(lastGridMatrixStatus, gridMatrix);
+        }
+
         public void resetGrid(){
-
-
             for (Block[] row : this.getGameBlockMatrix()) {
                 for (Block b : row) {
                     b.setValue(0);
@@ -161,6 +169,15 @@
 
             valueToRandomGameBlock();
         }
+
+        public void copyMatrixContent(Block[][] sourceMatrix, Block[][] targetMatrix) {
+            for (int row = 0; row < sourceMatrix.length ; row++) {
+                for (int col = 0; col < sourceMatrix[row].length ; col++) {
+                    targetMatrix[row][col] = sourceMatrix[row][col];
+                }
+            }
+        }
+
         public int getDisplayWidth(){
             DisplayMetrics displayMetrics = getContext().getResources().getDisplayMetrics();
             return displayMetrics.widthPixels;

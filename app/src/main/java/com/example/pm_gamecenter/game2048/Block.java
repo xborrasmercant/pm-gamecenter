@@ -119,7 +119,7 @@ public class Block extends FrameLayout {
 
     public FrameLayout.LayoutParams createFrameLayoutParams() {
         int cellMargin = (int) (displayWidth*1.2/100);
-        int cellSize = (int) ((displayWidth - cellMargin * 16) / 4.4);
+        int cellSize = (int) ((displayWidth - cellMargin * 16) / 4.6);
 
         FrameLayout.LayoutParams params = new LayoutParams(cellSize, cellSize);
         params.setMargins(cellMargin, cellMargin, cellMargin, cellMargin);

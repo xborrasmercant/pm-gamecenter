@@ -35,7 +35,7 @@ public class IdentificationFormScreen extends AppCompatActivity implements Popup
 
         // If login success set active user and go to hub (where games are located) if not show try again popup
         if (userExists(name, password)) {
-            userManager.setActiveUser(new User(name, password));
+            userManager.setActiveUser(userManager.getUserByName(name));
             startActivity(new Intent(IdentificationFormScreen.this, HubScreen.class));
         } else {
             showPopup(IdentificationType.LOGIN);
