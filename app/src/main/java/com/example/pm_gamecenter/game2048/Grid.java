@@ -7,7 +7,9 @@
     import com.example.pm_gamecenter.R;
     import androidx.appcompat.view.ContextThemeWrapper;
 
-    public class Grid extends GridLayout {
+    import java.io.Serializable;
+
+    public class Grid extends GridLayout implements Serializable {
         private int gridWidth, gridHeight;
         private Block[][] gridMatrix;
         private  Block[][] lastGridMatrixStatus;

@@ -3,6 +3,7 @@ package com.example.pm_gamecenter.game2048;
 import android.annotation.SuppressLint;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.GestureDetector;
@@ -14,6 +15,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
@@ -187,4 +190,21 @@ public class Game2048Screen extends AppCompatActivity implements MergeListener {
 
     }
 
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState, @NonNull PersistableBundle outPersistentState) {
+        super.onSaveInstanceState(outState, outPersistentState);
+        outState.putSerializable("GRID", grid);
+        outState.putString("CURRENT_SCORE", String.valueOf(currentScoreValue.getText()));
+    }
+
+    @Override
+    public void onRestoreInstanceState(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
+        super.onRestoreInstanceState(savedInstanceState, persistentState);
+
+        if (savedInstanceState != null) {
+            grid = (Grid) savedInstanceState.getSerializable("GRID");
+            currentScoreValue.setText(savedInstanceState.getString("CURRENT_SCORE"));
+        }
+
+    }
 }
