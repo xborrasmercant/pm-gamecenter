@@ -1,4 +1,4 @@
-package com.example.pm_gamecenter;
+package com.example.pm_gamecenter.utilities;
 
 public class User {
     private String username, password, profilePicturePath;

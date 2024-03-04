@@ -1,4 +1,4 @@
-package com.example.pm_gamecenter;
+package com.example.pm_gamecenter.menus;
 
 import android.content.Context;
 import android.net.Uri;
@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.pm_gamecenter.R;
 
 import java.util.ArrayList;
 

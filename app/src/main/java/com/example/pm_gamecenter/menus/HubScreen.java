@@ -1,4 +1,4 @@
-package com.example.pm_gamecenter;
+package com.example.pm_gamecenter.menus;
 
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -13,7 +13,11 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
 
+import com.example.pm_gamecenter.R;
 import com.example.pm_gamecenter.game2048.Game2048Screen;
+import com.example.pm_gamecenter.gameSenku.GameSenkuScreen;
+import com.example.pm_gamecenter.utilities.User;
+import com.example.pm_gamecenter.utilities.UserManager;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -99,6 +103,8 @@ public class HubScreen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.i("CLICK", "GAME SENKU");
+                startActivity(new Intent(HubScreen.this, GameSenkuScreen.class));
+
             }
         });
     }

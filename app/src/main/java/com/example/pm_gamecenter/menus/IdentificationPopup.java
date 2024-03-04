@@ -1,17 +1,13 @@
-package com.example.pm_gamecenter;
-
-import static androidx.core.content.ContextCompat.startActivity;
+package com.example.pm_gamecenter.menus;
 
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+import com.example.pm_gamecenter.utilities.PopupActionListener;
+import com.example.pm_gamecenter.R;
 
 public class IdentificationPopup extends PopupWindow{
     private TextView title;
@@ -21,7 +17,7 @@ public class IdentificationPopup extends PopupWindow{
     private PopupActionListener popupActionListener;
 
 
-    public IdentificationPopup(Context context, IdentificationType idType, int width, int height) {
+    public IdentificationPopup(Context context, IdentificationFormScreen.IdentificationType idType, int width, int height) {
         super(context);
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         popupView = inflater.inflate(R.layout.popup_identification, null);
@@ -32,7 +28,7 @@ public class IdentificationPopup extends PopupWindow{
         setHeight(height);
     }
 
-    public void findViews(IdentificationType idType) {
+    public void findViews(IdentificationFormScreen.IdentificationType idType) {
         title = popupView.findViewById(R.id.popup_title);
         description = popupView.findViewById(R.id.popup_description);
         continueButton = popupView.findViewById(R.id.popup_button);
@@ -42,7 +38,7 @@ public class IdentificationPopup extends PopupWindow{
             @Override
             public void onClick(View v) {
 
-                if (idType != IdentificationType.REGISTER_SUCCESS) {
+                if (idType != IdentificationFormScreen.IdentificationType.REGISTER_SUCCESS) {
                     dismiss();
                 }
                 else {
@@ -55,7 +51,7 @@ public class IdentificationPopup extends PopupWindow{
         });
     }
 
-    public void setPopupInfo(IdentificationType idType) {
+    public void setPopupInfo(IdentificationFormScreen.IdentificationType idType) {
         switch (idType) {
             case LOGIN: {
                 title.setText(R.string.popup_loginFailed_Title);

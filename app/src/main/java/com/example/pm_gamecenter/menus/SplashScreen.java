@@ -1,10 +1,12 @@
-package com.example.pm_gamecenter;
+package com.example.pm_gamecenter.menus;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.pm_gamecenter.R;
 
 @SuppressLint("CustomSplashScreen")
 public class SplashScreen extends AppCompatActivity {
@@ -19,7 +21,7 @@ public class SplashScreen extends AppCompatActivity {
             @Override
             public void run() {
 
-                SplashScreen.this.startActivity(new Intent(SplashScreen.this,IdentificationScreen.class));
+                SplashScreen.this.startActivity(new Intent(SplashScreen.this, IdentificationScreen.class));
                 SplashScreen.this.finish();
             }
         }, SPLASH_DISPLAY_LENGTH);

@@ -1,4 +1,4 @@
-package com.example.pm_gamecenter;
+package com.example.pm_gamecenter.utilities;
 import android.content.Context;
 import android.util.Log;
 import android.util.Xml;
@@ -8,7 +8,6 @@ import org.xmlpull.v1.XmlSerializer;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
-import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.StringWriter;

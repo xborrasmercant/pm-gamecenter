@@ -1,4 +1,4 @@
-package com.example.pm_gamecenter;
+package com.example.pm_gamecenter.menus;
 
 public class LeaderboardsCard {
     String profilePicturePath, username;

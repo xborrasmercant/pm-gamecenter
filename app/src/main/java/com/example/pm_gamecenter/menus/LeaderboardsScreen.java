@@ -1,4 +1,4 @@
-package com.example.pm_gamecenter;
+package com.example.pm_gamecenter.menus;
 
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -6,6 +6,10 @@ import android.util.DisplayMetrics;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.pm_gamecenter.R;
+import com.example.pm_gamecenter.utilities.User;
+import com.example.pm_gamecenter.utilities.UserManager;
 
 import java.util.ArrayList;
 

@@ -13,7 +13,7 @@
         android:theme="@style/Theme.PM_GameCenter"
         tools:targetApi="31">
         <activity
-            android:name=".SplashScreen"
+            android:name=".menus.SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,27 +22,31 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".IdentificationScreen"
+            android:name=".menus.IdentificationScreen"
             android:exported="true">
         </activity>
         <activity
-            android:name=".IdentificationFormScreen"
+            android:name=".menus.IdentificationFormScreen"
             android:exported="true">
         </activity>
         <activity
-            android:name=".HubScreen"
+            android:name=".menus.HubScreen"
             android:exported="true">
         </activity>
         <activity
-            android:name=".LeaderboardsScreen"
+            android:name=".menus.LeaderboardsScreen"
             android:exported="true">
         </activity>
         <activity
-            android:name=".SettingsScreen"
+            android:name=".menus.SettingsScreen"
             android:exported="true">
         </activity>
         <activity
             android:name=".game2048.Game2048Screen"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".gameSenku.GameSenkuScreen"
             android:exported="true">
         </activity>
     </application>

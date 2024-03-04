@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.GestureDetector;
@@ -17,19 +16,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 
 import com.example.pm_gamecenter.R;
-import com.example.pm_gamecenter.User;
-import com.example.pm_gamecenter.UserManager;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.Set;
+import com.example.pm_gamecenter.utilities.User;
+import com.example.pm_gamecenter.utilities.UserManager;
 
 
 public class Game2048Screen extends AppCompatActivity implements MergeListener {
@@ -52,7 +44,7 @@ public class Game2048Screen extends AppCompatActivity implements MergeListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.screen_game2048);
+        setContentView(R.layout.screen_game_2048);
 
 
         findViews();
@@ -69,7 +61,7 @@ public class Game2048Screen extends AppCompatActivity implements MergeListener {
         SharedPreferences prefs = getSharedPreferences("PREFS_2048", MODE_PRIVATE);
         int currentScore = prefs.getInt("CURRENT_SCORE", 0);
         currentScoreValue.setText(String.valueOf(currentScore));
-        String serializedGrid = prefs.getString("GRID_VALUES", "");
+        String serializedGrid = prefs.getString("GRID_VALUES", serializeGridValues());
         deserializeGridValues(serializedGrid);
     }
 
@@ -93,7 +85,6 @@ public class Game2048Screen extends AppCompatActivity implements MergeListener {
         params.setMargins(16,0, 16,0);
         gameLogo.setLayoutParams(params);
 
-        Log.i("ACTIVE_USER_2048_HIGHSCORE", String.valueOf(userManager.getActiveUser().getHighScore_2048()));
         bestScoreValue.setText(String.valueOf(userManager.getActiveUser().getHighScore_2048()));
 
         lastCurrentScore = String.valueOf(currentScoreValue.getText());
@@ -135,7 +126,6 @@ public class Game2048Screen extends AppCompatActivity implements MergeListener {
 
                         } else {
                             direction = "LEFT";
-
                         }
                     }
                 } else {

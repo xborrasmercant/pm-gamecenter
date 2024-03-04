@@ -1,4 +1,4 @@
-package com.example.pm_gamecenter;
+package com.example.pm_gamecenter.utilities;
 import org.xml.sax.Attributes;
 import org.xml.sax.helpers.DefaultHandler;
 

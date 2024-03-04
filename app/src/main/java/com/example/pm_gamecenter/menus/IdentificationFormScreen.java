@@ -1,4 +1,4 @@
-package com.example.pm_gamecenter;
+package com.example.pm_gamecenter.menus;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,14 +11,21 @@ import android.widget.FrameLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class IdentificationFormScreen extends AppCompatActivity implements PopupActionListener{
+import com.example.pm_gamecenter.utilities.PopupActionListener;
+import com.example.pm_gamecenter.R;
+import com.example.pm_gamecenter.utilities.User;
+import com.example.pm_gamecenter.utilities.UserManager;
+
+public class IdentificationFormScreen extends AppCompatActivity implements PopupActionListener {
 
     private UserManager userManager = UserManager.getInstance();
     private EditText nameEditText, passwordEditText;
     private Button identificationButton;
     private FrameLayout formLayout;
     private IdentificationType idType;
-
+    public enum IdentificationType {
+        LOGIN, REGISTER, REGISTER_FAILED, REGISTER_SUCCESS
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,6 +133,5 @@ public class IdentificationFormScreen extends AppCompatActivity implements Popup
     @Override
     public void onPopupDismissed() {
         startActivity(new Intent(IdentificationFormScreen.this, HubScreen.class));
-
     }
 }

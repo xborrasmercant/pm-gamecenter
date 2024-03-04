@@ -13,12 +13,14 @@
     <color name="shadowColor">#5C322A20</color>
 
     <color name="white">#F1F1F1</color>
+    <color name="grey_light">#C5C5C5</color>
     <color name="popup_title">#404938</color>
     <color name="popup_description">#4B5542</color>
     <color name="light_olive_UI">#6A775D</color>
     <color name="mid_olive_UI">#58634D</color>
     <color name="dark_olive_UI">#4B5542</color>
     <color name="orange_neon">#FD9618</color>
+    <color name="dim_orange">#BCFF8C00</color>
     <color name="dim_mblack">#000000</color>
     <color name="dim_black">#B0000000</color>
     <color name="dimgrey_background">#86000000</color>

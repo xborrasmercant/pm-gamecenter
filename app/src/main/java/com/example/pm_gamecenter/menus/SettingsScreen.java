@@ -1,7 +1,6 @@
-package com.example.pm_gamecenter;
+package com.example.pm_gamecenter.menus;
 
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -12,7 +11,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.res.ResourcesCompat;
+
+import com.example.pm_gamecenter.R;
+import com.example.pm_gamecenter.utilities.User;
+import com.example.pm_gamecenter.utilities.UserManager;
 
 public class SettingsScreen extends AppCompatActivity {
 

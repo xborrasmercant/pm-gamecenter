@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/app_background"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/gameCenterBG_contentDescription"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bmp_gamecenter_background" />
+
+    <LinearLayout
+        android:id="@+id/game_senku_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/game_senku_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="16dp"
+            android:orientation="vertical">
+
+
+            <FrameLayout
+                android:id="@+id/game_senku_timer_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="16dp">
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:id="@+id/game_senku_scoreboxes"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/game_senku_score_best"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    style="@style/ScoreboxBackground"
+                    >
+
+                    <TextView
+                        android:id="@+id/game_senku_score_best_label"
+                        style="@style/ScoreboxText"
+                        android:text="Best Score" />
+
+                    <FrameLayout
+                        android:id="@+id/game_senku_score_best_separator"
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        android:layout_marginHorizontal="8dp"
+                        android:background="@color/dark_olive_UI"
+                        >
+                    </FrameLayout>
+
+                    <TextView
+                        android:id="@+id/game_senku_score_best_value"
+                        style="@style/ScoreboxText"
+                        android:textSize="18dp"
+                        android:text="534432434" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/game_senku_score_current"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    style="@style/ScoreboxBackground"
+                    >
+
+                    <TextView
+                        android:id="@+id/game_senku_score_current_label"
+                        style="@style/ScoreboxText"
+                        android:text="Current Score" />
+
+                    <FrameLayout
+                        android:id="@+id/game_senku_score_current_separator"
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        android:layout_marginHorizontal="8dp"
+                        android:background="@color/dark_olive_UI"
+                        >
+                    </FrameLayout>
+
+                    <TextView
+                        android:id="@+id/game_senku_score_current_value"
+                        style="@style/ScoreboxText"
+                        android:textSize="18dp"
+                        android:text="0" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/game_senku_board_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp" />
+
+        <LinearLayout
+            android:id="@+id/game_senku_footer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/game_senku_button_undo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                style="@style/OrangeNeonButton"
+                android:text="UNDO" />
+
+            <Button
+                android:id="@+id/game_senku_button_reset"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                style="@style/OrangeNeonButton"
+                android:text="RESET" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+</FrameLayout>
