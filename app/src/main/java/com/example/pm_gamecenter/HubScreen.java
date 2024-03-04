@@ -14,7 +14,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
 
 import com.example.pm_gamecenter.game2048.Game2048Screen;
-import com.example.pm_gamecenter.game2048.oldGame2048Screen;
 
 import java.util.Collections;
 import java.util.Comparator;

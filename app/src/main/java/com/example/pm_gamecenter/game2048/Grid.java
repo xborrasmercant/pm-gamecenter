@@ -12,7 +12,7 @@
     public class Grid extends GridLayout implements Serializable {
         private int gridWidth, gridHeight;
         private Block[][] gridMatrix;
-        private  Block[][] lastGridMatrixStatus;
+        private  int[][] lastGridMatrixStatus;
         private Context gameBlockStyledContext = new ContextThemeWrapper(this.getContext(), R.style.GameBlockStyle); // Context with custom style is created
         private MergeListener mergeListener;
 
@@ -21,7 +21,7 @@
             this.gridWidth = gridWidth;
             this.gridHeight = gridHeight;
             this.gridMatrix = new Block[gridHeight][gridWidth];
-            this.lastGridMatrixStatus = new Block[gridHeight][gridWidth];
+            this.lastGridMatrixStatus = new int[gridHeight][gridWidth];
             this.initGrid();
             this.valueToRandomGameBlock();
             copyMatrixContent(gridMatrix, lastGridMatrixStatus);
@@ -55,6 +55,8 @@
 
         public void handleSweep(String direction) {
             boolean[][] merged = new boolean[gridHeight][gridWidth]; // Keep track of merges
+            copyMatrixContent(gridMatrix, lastGridMatrixStatus);
+
 
             if (direction.equals("LEFT") || direction.equals("UP")) {
                 // Move and merge from left-to-right or top-to-bottom
@@ -73,8 +75,6 @@
                     }
                 }
             }
-
-            copyMatrixContent(gridMatrix, lastGridMatrixStatus);
         }
 
         private void moveAndMergeTiles(int row, int col, String direction, boolean[][] merged) {
@@ -140,8 +140,8 @@
                 return false;
             }
         }
-        public void addBlockToMatrix(Block b) {
-            gridMatrix[b.getPosX()][b.getPosY()] = b;
+        public void addBlockToMatrix(Block[][] matrix, Block b) {
+            matrix[b.getPosX()][b.getPosY()] = b;
         }
         public void initGrid() {
             int spacing = (int) (getDisplayWidth()*0.012f);
@@ -151,7 +151,7 @@
                     Block b = new Block(gameBlockStyledContext, col, row, 0);
 
                     b.getTextView().setTextSize(getResponsiveTextSize(b.getValue()));
-                    this.addBlockToMatrix(b);
+                    this.addBlockToMatrix(gridMatrix, b);
                     this.addView(b, createGridParams(col, row, spacing));
 
                 }
@@ -159,7 +159,11 @@
         }
 
         public void undoGrid(){
-            copyMatrixContent(lastGridMatrixStatus, gridMatrix);
+            for (int row = 0; row < gridMatrix.length; row++) {
+                for (int col = 0; col < gridMatrix[row].length; col++) {
+                    gridMatrix[row][col].setValue(lastGridMatrixStatus[row][col]);
+                }
+            }
         }
 
         public void resetGrid(){
@@ -172,10 +176,10 @@
             valueToRandomGameBlock();
         }
 
-        public void copyMatrixContent(Block[][] sourceMatrix, Block[][] targetMatrix) {
+        public void copyMatrixContent(Block[][] sourceMatrix, int[][] targetMatrix) {
             for (int row = 0; row < sourceMatrix.length ; row++) {
                 for (int col = 0; col < sourceMatrix[row].length ; col++) {
-                    targetMatrix[row][col] = sourceMatrix[row][col];
+                    targetMatrix[row][col] = sourceMatrix[row][col].getValue();
                 }
             }
         }
