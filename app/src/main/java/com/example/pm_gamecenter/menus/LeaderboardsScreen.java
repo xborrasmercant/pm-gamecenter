@@ -1,7 +1,9 @@
 package com.example.pm_gamecenter.menus;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -11,6 +13,7 @@ import com.example.pm_gamecenter.R;
 import com.example.pm_gamecenter.utilities.User;
 import com.example.pm_gamecenter.utilities.UserManager;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class LeaderboardsScreen extends AppCompatActivity {
@@ -41,9 +44,10 @@ public class LeaderboardsScreen extends AppCompatActivity {
             String username = u.getUsername();
             int score2048 = u.getHighScore_2048();
             int scoreSenku = u.getHighScore_Senku();
+            Uri picUri = getProfilePictureUri(username);
 
-            leaderboardCards1.add(new LeaderboardsCard(profilePicturePath, username, score2048));
-            leaderboardCards2.add(new LeaderboardsCard(profilePicturePath, username, scoreSenku));
+            leaderboardCards1.add(new LeaderboardsCard(username, score2048, picUri));
+            leaderboardCards2.add(new LeaderboardsCard(username, scoreSenku, picUri));
         }
     }
 
@@ -57,6 +61,24 @@ public class LeaderboardsScreen extends AppCompatActivity {
         recyclerView2.setLayoutManager(new LinearLayoutManager(this));
 
     }
+
+    private Uri getProfilePictureUri(String username) {
+        File pictureDir = new File(getFilesDir(), "ProfilePictures");
+        File profilePicture = new File(pictureDir, username + ".png");
+        if (profilePicture.exists()) {
+            return Uri.fromFile(profilePicture);
+        } else {
+            // If no profile picture, return the URI of the default drawable
+            return Uri.parse("android.resource://" + getPackageName() + "/" + R.drawable.bmp_avatar_default);
+        }
+    }
+
+    // Call this method when you want to set the ImageView with the user's profile picture
+    private void setProfilePicture(ImageView imageView, String username) {
+        Uri imageUri = getProfilePictureUri(username);
+        imageView.setImageURI(imageUri);
+    }
+
 
     public int getDisplayWidth(){
         DisplayMetrics displayMetrics = getApplicationContext().getResources().getDisplayMetrics();
