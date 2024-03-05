@@ -25,29 +25,34 @@ public class Timer extends androidx.appcompat.widget.AppCompatTextView {
 
     public void stopTimer() {
         runTimer = false;
+        handler.removeCallbacksAndMessages(null); // This will remove any pending posts of the Runnable
     }
 
     private void updateTimer() {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                // Increment seconds
-                while (runTimer){
-                    s++;
-                    // When seconds reach 60, increment minutes and reset seconds
-                    if (s == 60) {
-                        m++;
-                        s = 0;
-                    }
-                    // Reset timer after 59 minutes
-                    if (m == 60) {
-                        m = 0;
-                    }
-
-                    Timer.this.setText(String.format("%02d:%02d", m, s));
+                if (!runTimer) {
+                    return; // Exit if the timer is stopped
                 }
+                s++;
+                if (s == 60) {
+                    m++;
+                    s = 0;
+                }
+                if (m == 60) {
+                    m = 0;
+                }
+                Timer.this.setText(String.format("%02d:%02d", m, s));
+                // Post the Runnable to itself to run again after 1000ms
+                handler.postDelayed(this, 1000);
             }
-        }, 1000); // Schedule the update after 1 second
+        }, 1000);
+    }
+
+    public void resetTimer() {
+        m = 0;
+        s = 0;
     }
 
     public boolean isRunTimer() {

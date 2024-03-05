@@ -128,7 +128,7 @@ public class GameSenkuScreen extends AppCompatActivity implements MoveListener, 
         int currentScore = prefs.getInt("CURRENT_SCORE", 0);
         currentScoreValue.setText(String.valueOf(currentScore));
 
-        String serializedBoard = prefs.getString("BOARD_VALUES", "");
+        String serializedBoard = prefs.getString("BOARD_VALUES", serializeBoardValues());
         deserializeBoardValues(serializedBoard);
     }
 
@@ -139,6 +139,7 @@ public class GameSenkuScreen extends AppCompatActivity implements MoveListener, 
 
     private void resetGame() {
         board.resetBoard();
+        timer.resetTimer();
         currentScoreValue.setText("0");
     }
 
