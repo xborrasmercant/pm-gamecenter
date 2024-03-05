@@ -17,10 +17,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -34,6 +36,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.Set;
 
 public class SettingsScreen extends AppCompatActivity {
 
@@ -53,6 +56,7 @@ public class SettingsScreen extends AppCompatActivity {
         findViews();
         editViewsAttributes();
         setClickListeners();
+        onBackResume();
     }
 
     public void findViews() {
@@ -163,12 +167,14 @@ public class SettingsScreen extends AppCompatActivity {
             public void onClick(View v) {
                 Log.i("CLICK", "DELETE ACCOUNT");
 
+                deleteProfilePicture(userManager.getActiveUser().getUsername());
+
                 userManager.getUsers().remove(userManager.getUserByName(userManager.getActiveUser().getUsername()));
                 userManager.setActiveUser(null);
                 userManager.writeUsersXML(getApplicationContext());
 
                 startActivity(new Intent(SettingsScreen.this, IdentificationScreen.class));
-
+                finish();
             }
         });
     }
@@ -233,11 +239,33 @@ public class SettingsScreen extends AppCompatActivity {
         }
     }
 
-
-
+    private void deleteProfilePicture(String username) {
+        File pictureDir = new File(getFilesDir(), "ProfilePictures");
+        File profilePicture = new File(pictureDir, username + ".png");
+        if (profilePicture.exists()) {
+            if (profilePicture.delete()) {
+                Log.i("DELETE", "Profile picture deleted successfully.");
+            } else {
+                Log.e("DELETE", "Failed to delete profile picture.");
+            }
+        }
+    }
 
     public int getDisplayWidth(){
         DisplayMetrics displayMetrics = getApplicationContext().getResources().getDisplayMetrics();
         return displayMetrics.widthPixels;
+    }
+
+    public void onBackResume() {
+        OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
+            @Override
+            public void handleOnBackPressed() {
+                // Handle the back button event
+                Intent intent = new Intent(SettingsScreen.this, HubScreen.class);
+                startActivity(intent);
+                finish();
+            }
+        };
+        getOnBackPressedDispatcher().addCallback(this, callback);
     }
 }

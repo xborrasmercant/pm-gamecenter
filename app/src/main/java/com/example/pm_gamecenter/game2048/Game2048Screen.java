@@ -1,6 +1,7 @@
 package com.example.pm_gamecenter.game2048;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
@@ -15,11 +16,14 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import com.example.pm_gamecenter.R;
+import com.example.pm_gamecenter.gameSenku.GameSenkuScreen;
+import com.example.pm_gamecenter.menus.HubScreen;
 import com.example.pm_gamecenter.utilities.User;
 import com.example.pm_gamecenter.utilities.UserManager;
 
@@ -52,7 +56,7 @@ public class Game2048Screen extends AppCompatActivity implements MergeListener {
         setClickListeners();
         setGestureDetector();
         restoreSavedData();
-
+        onBackResume();
     }
 
     // METHODS
@@ -258,5 +262,15 @@ public class Game2048Screen extends AppCompatActivity implements MergeListener {
         currentScoreValue.setText(savedInstanceState.getString("CURRENT_SCORE", "0"));
         deserializeGridValues(savedInstanceState.getString("GRID_VALUES"));
     }
-
-}
+    public void onBackResume() {
+        OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
+            @Override
+            public void handleOnBackPressed() {
+                // Handle the back button event
+                Intent intent = new Intent(Game2048Screen.this, HubScreen.class);
+                startActivity(intent);
+                finish();
+            }
+        };
+        getOnBackPressedDispatcher().addCallback(this, callback);
+    }}

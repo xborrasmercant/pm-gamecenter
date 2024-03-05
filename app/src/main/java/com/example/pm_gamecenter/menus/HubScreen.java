@@ -1,6 +1,7 @@
 package com.example.pm_gamecenter.menus;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
@@ -11,6 +12,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.activity.OnBackPressedCallback;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
 
@@ -40,6 +43,7 @@ public class HubScreen extends AppCompatActivity {
         findViews();
         editViewsAttributes();
         setClickListeners();
+        onBackResume();
     }
 
     public void findViews() {
@@ -87,6 +91,7 @@ public class HubScreen extends AppCompatActivity {
                 Log.i("CLICK", "LEADERBOARDS");
                 sortUsersAlphabetically();
                 startActivity(new Intent(HubScreen.this, LeaderboardsScreen.class));
+                finish();
             }
         });
 
@@ -95,6 +100,7 @@ public class HubScreen extends AppCompatActivity {
             public void onClick(View v) {
                 Log.i("CLICK", "SETTINGS");
                 startActivity(new Intent(HubScreen.this, SettingsScreen.class));
+                finish();
             }
         });
 
@@ -103,6 +109,7 @@ public class HubScreen extends AppCompatActivity {
             public void onClick(View v) {
                 Log.i("CLICK", "GAME 2048");
                 startActivity(new Intent(HubScreen.this, Game2048Screen.class));
+                finish();
 
             }
         });
@@ -112,7 +119,7 @@ public class HubScreen extends AppCompatActivity {
             public void onClick(View v) {
                 Log.i("CLICK", "GAME SENKU");
                 startActivity(new Intent(HubScreen.this, GameSenkuScreen.class));
-
+                finish();
             }
         });
     }
@@ -145,5 +152,18 @@ public class HubScreen extends AppCompatActivity {
                 return u1.getUsername().compareToIgnoreCase(u2.getUsername());
             }
         });
+    }
+
+    public void onBackResume() {
+        OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
+            @Override
+            public void handleOnBackPressed() {
+                // Handle the back button event
+                Intent intent = new Intent(HubScreen.this, IdentificationScreen.class);
+                startActivity(intent);
+                finish();
+            }
+        };
+        getOnBackPressedDispatcher().addCallback(this, callback);
     }
 }

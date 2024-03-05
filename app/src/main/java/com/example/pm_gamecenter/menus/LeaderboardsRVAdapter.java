@@ -39,6 +39,7 @@ public class LeaderboardsRVAdapter extends RecyclerView.Adapter<LeaderboardsRVAd
     @Override
     public void onBindViewHolder(@NonNull LeaderboardsRVAdapter.LeaderboardViewHolder holder, int position) {
 
+        holder.cardProfilePicture.setLayoutParams(leaderboardCards.get(position).getParams());
         holder.cardProfilePicture.setImageURI(leaderboardCards.get(position).getPicURI());
         holder.cardUsername.setText(leaderboardCards.get(position).getUsername());
         holder.cardScore.setText(String.valueOf(leaderboardCards.get(position).getScore()));
@@ -60,7 +61,6 @@ public class LeaderboardsRVAdapter extends RecyclerView.Adapter<LeaderboardsRVAd
             cardProfilePicture = itemView.findViewById(R.id.card_picture);
             cardUsername = itemView.findViewById(R.id.card_username);
             cardScore = itemView.findViewById(R.id.card_score);
-
         }
     }
 }

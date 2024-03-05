@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.pm_gamecenter.utilities.PopupActionListener;
@@ -32,9 +33,10 @@ public class IdentificationFormScreen extends AppCompatActivity implements Popup
         super.onCreate(savedInstanceState);
         setContentView(R.layout.screen_identification_form);
 
-
         initComponents();
+        onBackResume();
     }
+
 
     private void loginUser() {
         String name = nameEditText.getText().toString();
@@ -44,6 +46,7 @@ public class IdentificationFormScreen extends AppCompatActivity implements Popup
         if (userExists(name, password)) {
             userManager.setActiveUser(userManager.getUserByName(name));
             startActivity(new Intent(IdentificationFormScreen.this, HubScreen.class));
+            finish();
         } else {
             showPopup(IdentificationType.LOGIN);
         }
@@ -130,8 +133,22 @@ public class IdentificationFormScreen extends AppCompatActivity implements Popup
         idPopup.showAtLocation(formLayout, Gravity.CENTER, 0, 0);
     }
 
+    public void onBackResume() {
+        OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
+            @Override
+            public void handleOnBackPressed() {
+                // Handle the back button event
+                Intent intent = new Intent(IdentificationFormScreen.this, IdentificationScreen.class);
+                startActivity(intent);
+                finish();
+            }
+        };
+        getOnBackPressedDispatcher().addCallback(this, callback);
+    }
+
     @Override
     public void onPopupDismissed() {
         startActivity(new Intent(IdentificationFormScreen.this, HubScreen.class));
+        finish();
     }
 }

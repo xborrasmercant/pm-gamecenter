@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.view.ContextThemeWrapper;
@@ -42,6 +43,7 @@ public class GameSenkuScreen extends AppCompatActivity implements MoveListener, 
         editViewsAttributes();
         setClickListeners();
         restoreSavedData();
+        onBackResume();
     }
 
     public void findViews() {
@@ -247,6 +249,19 @@ public class GameSenkuScreen extends AppCompatActivity implements MoveListener, 
         super.onRestoreInstanceState(savedInstanceState);
         currentScoreValue.setText(savedInstanceState.getString("CURRENT_SCORE", "0"));
         deserializeBoardValues(savedInstanceState.getString("BOARD_VALUES"));
+    }
+
+    public void onBackResume() {
+        OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
+            @Override
+            public void handleOnBackPressed() {
+                // Handle the back button event
+                Intent intent = new Intent(GameSenkuScreen.this, HubScreen.class);
+                startActivity(intent);
+                finish();
+            }
+        };
+        getOnBackPressedDispatcher().addCallback(this, callback);
     }
 
 }

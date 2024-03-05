@@ -48,9 +48,6 @@ public class IdentificationScreen extends AppCompatActivity {
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(appLogoWidth, appLogoWidth);
         params.setMargins(0, appLogoTopMargin, 0, 0);
         appLogo.setLayoutParams(params);
-
-
-
     }
 
     public void setClickListeners() {
@@ -60,6 +57,7 @@ public class IdentificationScreen extends AppCompatActivity {
                 Intent intent = new Intent(IdentificationScreen.this, IdentificationFormScreen.class);
                 intent.putExtra("IdentificationType", IdentificationFormScreen.IdentificationType.LOGIN);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -69,6 +67,7 @@ public class IdentificationScreen extends AppCompatActivity {
                 Intent intent = new Intent(IdentificationScreen.this, IdentificationFormScreen.class);
                 intent.putExtra("IdentificationType", IdentificationFormScreen.IdentificationType.REGISTER);
                 startActivity(intent);
+                finish();
             }
         });
     }

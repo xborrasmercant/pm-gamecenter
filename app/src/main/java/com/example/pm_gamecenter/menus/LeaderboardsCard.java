@@ -1,16 +1,21 @@
 package com.example.pm_gamecenter.menus;
 
 import android.net.Uri;
+import android.widget.LinearLayout;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 public class LeaderboardsCard {
     String username;
     int score;
     Uri picURI;
+    LinearLayout.LayoutParams params;
 
-    public LeaderboardsCard(String username, int score, Uri picURI) {
+    public LeaderboardsCard(String username, int score, Uri picURI, LinearLayout.LayoutParams params) {
         this.username = username;
         this.score = score;
         this.picURI = picURI;
+        this.params = params;
     }
 
     public String getUsername() {
@@ -35,5 +40,13 @@ public class LeaderboardsCard {
 
     public void setPicURI(Uri picURI) {
         this.picURI = picURI;
+    }
+
+    public LinearLayout.LayoutParams getParams() {
+        return params;
+    }
+
+    public void setParams(LinearLayout.LayoutParams params) {
+        this.params = params;
     }
 }
