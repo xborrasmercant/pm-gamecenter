@@ -46,6 +46,7 @@ Welcome to Senku game, the objective of the game is the remove all the pegs leav
 - **User Storage System**
   - User information is stored in XML in private storage.
   - User objects are parsed into an ArrayList using SaxHandler.
+  - Each time that you go back or enter a activity a new instance of the activity is created, ensuring the information of the activity (username, profile picture, etc) is updated correctly.
 
 - **Profile Picture Customization**
   - Users can change their profile picture from the device gallery.
