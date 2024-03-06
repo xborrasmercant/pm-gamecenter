@@ -108,7 +108,7 @@ public class SettingsScreen extends AppCompatActivity {
                 String newUsername = String.valueOf(usernameField.getText());
                 User storedActiveUser = userManager.getUserByName(oldUsername);
                 storedActiveUser.setUsername(newUsername);
-
+                renameProfilePicture(oldUsername, newUsername);
                 userManager.setActiveUser(storedActiveUser);
                 userManager.writeUsersXML(getApplicationContext());
 
@@ -244,6 +244,18 @@ public class SettingsScreen extends AppCompatActivity {
         File profilePicture = new File(pictureDir, username + ".png");
         if (profilePicture.exists()) {
             if (profilePicture.delete()) {
+                Log.i("DELETE", "Profile picture deleted successfully.");
+            } else {
+                Log.e("DELETE", "Failed to delete profile picture.");
+            }
+        }
+    }
+
+    private void renameProfilePicture(String oldUsername, String newUsername) {
+        File pictureDir = new File(getFilesDir(), "ProfilePictures");
+        File profilePicture = new File(pictureDir, oldUsername + ".png");
+        if (profilePicture.exists()) {
+            if (profilePicture.renameTo(new File(pictureDir, newUsername + ".png"))) {
                 Log.i("DELETE", "Profile picture deleted successfully.");
             } else {
                 Log.e("DELETE", "Failed to delete profile picture.");
