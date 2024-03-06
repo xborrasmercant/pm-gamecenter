@@ -35,6 +35,38 @@ Welcome to the 2048 screen, here you can play acheiving the maximum points you c
 
 Welcome to Senku game, the objective of the game is the remove all the pegs leaving only one of them to achieve the victory. Dependending on you win or lose a popup will be prompted. As for 2048 you can undo a single time for movement done and reset current game.
 
-## Main features
-### 2048
-### Senku
+
+## Main Features
+
+- **User Storage System**
+  - User information is stored in XML in private storage.
+  - User objects are parsed into an ArrayList using SaxHandler.
+
+- **Profile Picture Customization**
+  - Users can change their profile picture from the device gallery.
+  - The picture is saved in device private storage with the username for identification.
+  - Upon account deletion, the picture is also deleted.
+
+- **Leaderboards Display**
+  - Users' information is displayed alphabetically in the leaderboards screen.
+  - A RecyclerView is used for each game's leaderboard.
+
+- **2048 Game Mechanics**
+  - Score increases by the number result of the merge.
+  - Correct tile merging using an "merged" array to prevent incorrect merges.
+  - Tile colors are tiered based on value, with a consistent color for values above 4096.
+  - Text size within tiles is adjusted based on the number's length to ensure fit.
+  - A custom listener (`onMergeListener`) updates scores and user stats upon merges.
+  - Game status is saved when exiting, using SharedPreferences for serialization/deserialization of grid values.
+
+- **Senku Game Mechanics**
+  - Cells are selected by tapping and moved to valid positions, checking for proper movement conditions.
+  - The game board checks for game status (gameover, win, or playable) after each move.
+  - Score increases for each move, representing the number of movements.
+  - The game board is a GridLayout with a bidimensional matrix, with corners set to -1 for visibilty off.
+
+- **Settings Menu Features**
+  - Profile pictures can be changed by selecting a new image from the gallery, saved with the username as the filename.
+  - Users can change their username and password tapping on the icon right of its input fields.
+  - A "Reset Scores" option sets all registered scores for the user to 0.
+  - The "Delete Account" option removes the account from the UserManager's users ArrayList and the users.xml file.
