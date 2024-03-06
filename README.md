@@ -5,7 +5,7 @@ The app has been developed using Java and Gradle (quite painful).
 
 ## Showcase of app
 
-###Identification Screen
+### Identification Screen
 ![image](https://github.com/xborrasmercant/PM_GameCenter/assets/91749310/64944136-fb41-4717-9c8e-a32058786a43)
 
 You can choose between login or register, the username must be unique. Users will be given a default profile picture, they will be able to change it later in settings.
