@@ -21,6 +21,7 @@
                 style="@style/PopupTitleStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_black"
                 android:text="@string/popup_loginFailed_Title" />
 
             <TextView
