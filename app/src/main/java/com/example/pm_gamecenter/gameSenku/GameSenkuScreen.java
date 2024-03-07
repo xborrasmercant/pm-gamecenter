@@ -221,6 +221,7 @@ public class GameSenkuScreen extends AppCompatActivity implements MoveListener, 
     @Override
     public void onPopupDismissed() {
         startActivity(new Intent(GameSenkuScreen.this, HubScreen.class));
+        resetGame();
     }
 
     @Override
