@@ -50,18 +50,18 @@ Welcome to Senku game, the objective of the game is the remove all the pegs leav
 
 - **Profile Picture Customization**
   - Users can change their profile picture from the device gallery.
-  - The picture is saved in device private storage with the username for identification.
+  - The picture is saved in device private storage with the username as filename for identification.
   - Upon account deletion, the picture is also deleted.
 
 - **Leaderboards Display**
   - Users' information is displayed alphabetically in the leaderboards screen.
-  - A RecyclerView is used for each game's leaderboard.
+  - A RecyclerView is used for displaying the scores of the user in the leaderboards screen.
 
 - **2048 Game Mechanics**
   - Score increases by the number result of the merge.
   - Correct tile merging using an "merged" array to prevent incorrect merges.
-  - Tile colors are tiered based on value, with a consistent color for values above 4096.
-  - Text size within tiles is adjusted based on the number's length to ensure fit.
+  - Tile colors are set based on value, with a consistent color for values above 4096.
+  - Text size of tiles is adjusted based on the number's length to ensure they fit.
   - A custom listener (`onMergeListener`) updates scores and user stats upon merges.
   - Game status is saved when exiting, using SharedPreferences for serialization/deserialization of grid values.
 
